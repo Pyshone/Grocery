@@ -1,0 +1,52 @@
+.checkout-container {
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-card {
+    border-radius: 12px;
+    /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(133, 217, 114, 0.2);
+    /* Shadow effect */
+    /* max-width: 600px;  */
+    width: 100%;
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.section {
+    /* margin-bottom: 20px; */
+    padding: 20px;
+}
+
+.section label {
+    font-weight: 600;
+}
+
+.section .MuiFormControl-root {
+    margin-bottom: 20px;
+}
+
+.section .MuiTypography-root {
+    margin-top: 10px;
+}
+
+
+.pay-pay {
+    padding: 20px;
+    padding-bottom: 90px;
+    /* margin-top: 20px; */
+    background-color: #f2fcf4;
+    ;
+
+}
+
+.checkout {
+    border: '1px solid';
+    border-Color: 'grey.300';
+    border-radius: 20px;
+    padding: 2;
+}

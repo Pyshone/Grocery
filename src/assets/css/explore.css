@@ -1,0 +1,39 @@
+.groc-head{
+    max-width: 1220px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(66, 66, 66, 1);
+    font-size: 36px;
+    font-weight: 500;
+}
+.see{
+    color: rgba(85, 171, 96, 1);
+    font-size: 26px;
+    font-weight: 500;
+  
+}
+.groc-img {
+    max-width: 1220px;
+    margin: 0px auto;
+    margin-top: 50px;
+    display: flex;
+    gap: 50px;
+}
+.rate{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+}
+p{
+    color: rgba(66, 66, 66, 1);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.explore-explore{
+    padding-bottom: 90px;
+}
