@@ -53,6 +53,6 @@ h1{
     }
   
     .sus p {
-      font-size: 1em; /* Adjust paragraph text for mobile devices */
+      font-size: 10px; /* Adjust paragraph text for mobile devices */
     }
   }
