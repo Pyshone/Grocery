@@ -9,7 +9,7 @@ import PageTitle from "../../helpers/pageTitle";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCartItemsRequest, updateItemQuantityRequest } from '../../redux/reducer/cartSlice';
 import '../../assets/css/cartPage.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 
 // Define validation schema with Yup
 const schema = yup.object().shape({
@@ -27,6 +27,7 @@ const CheckoutPage = () => {
   const status = useSelector((state) => state.cart.status);
   const error = useSelector((state) => state.cart.error);
   const [formData, setFormData] = useState(null);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -83,6 +84,7 @@ const CheckoutPage = () => {
   const onFormSubmit = (data) => {
     setFormData(data);
     console.log(data, "data");
+    // navigate('/success', { state: { formData: data, subtotal, tax, shipping, total } });
   };
 
   return (
@@ -268,11 +270,9 @@ const CheckoutPage = () => {
                 <div className="payment-detail total">
                     <span><strong></strong></span>
                     <span><strong></strong></span>
-                    <Button variant='contained' color='success'>
-                        <Link to='/success'>
-                        <strong>PlaceOrder</strong>
-                        </Link>
-                        </Button>
+                    <Button variant='contained' color='success' onClick={() => navigate('/success', { state: { formData, subtotal, tax, shipping, total } })}>
+                    <strong>Place Order</strong>
+                  </Button>
                 </div>
             </div>
              </div>
