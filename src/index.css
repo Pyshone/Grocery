@@ -55,6 +55,23 @@ code {
   max-width: 100%;
   height: auto;
 }
+@media (max-width: 1200px) {
+  .banner-text p {
+      font-size: 1.8rem; /* Slightly smaller font size for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-text p {
+      font-size: 1.5rem; /* Smaller font size for tablet screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-text p {
+      font-size: 1.2rem; /* Smallest font size for mobile screens */
+  }
+}
 /* .. */
 .grocery-page {
   display: flex;
