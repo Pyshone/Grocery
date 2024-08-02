@@ -18,25 +18,41 @@ h1{
     color: green;
 }
 @media (max-width: 768px) {
-  .sus {
-    flex-direction: column;
+    .sus {
+      flex-direction: column;
+    }
+  
+    .sus > div {
+      flex: 1 1 100%;
+    }
+  
+    .sus-head h1 {
+      font-size: 1.5em; /* Adjust font size for tablets */
+    }
+  
+    .sus-head p {
+      font-size: 0.9em; /* Adjust font size for tablets */
+    }
   }
-
-  .sus > div {
-    flex: 1 1 100%;
+  
+  @media (max-width: 480px) {
+    .sus-head h1 {
+      font-size: 1.2em; /* Adjust font size for mobile devices */
+    }
+  
+    .sus-head p {
+      font-size: 0.8em; /* Adjust font size for mobile devices */
+    }
+  
+    .sus > div {
+      padding: 10px;
+    }
+  
+    .sus h1 {
+      font-size: 1.5em; /* Adjust section headings for mobile devices */
+    }
+  
+    .sus p {
+      font-size: 1em; /* Adjust paragraph text for mobile devices */
+    }
   }
-}
-
-@media (max-width: 480px) {
-  .sus-head h1 {
-    font-size: 24px;
-  }
-
-  .sus-head p {
-    font-size: 16px;
-  }
-
-  .sus > div {
-    padding: 10px;
-  }
-}
