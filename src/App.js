@@ -19,6 +19,7 @@ function App() {
         </Route>
         <Route  path="/" element={<AppLayouts />}>
         <Route path='/'  element={<Home/>}/>
+        <Route path='/home'  element={<Home/>}/>
         <Route path='/explore'  element={<Explore/>}/>
         <Route path="view" element={<ViewAll/>}/>
         <Route path="cart" element={<CartPage/>}/>
