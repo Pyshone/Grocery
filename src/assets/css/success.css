@@ -17,3 +17,26 @@
 h1{
     color: green;
 }
+@media (max-width: 768px) {
+  .sus {
+    flex-direction: column;
+  }
+
+  .sus > div {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .sus-head h1 {
+    font-size: 24px;
+  }
+
+  .sus-head p {
+    font-size: 16px;
+  }
+
+  .sus > div {
+    padding: 10px;
+  }
+}
