@@ -1,11 +1,15 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState,useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import {TextField,RadioGroup,FormControlLabel,Radio,Button,Typography,Card,CardContent,FormControl,FormLabel,
-  Grid ,Box} from "@mui/material";
+  Grid } from "@mui/material";
 import "../../assets/css/payment.css";
 import PageTitle from "../../helpers/pageTitle";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCartItemsRequest, updateItemQuantityRequest } from '../../redux/reducer/cartSlice';
+import '../../assets/css/cartPage.css';
+import { Link } from 'react-router-dom';
 
 // Define validation schema with Yup
 const schema = yup.object().shape({
@@ -18,6 +22,10 @@ const schema = yup.object().shape({
 });
 
 const CheckoutPage = () => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+  const status = useSelector((state) => state.cart.status);
+  const error = useSelector((state) => state.cart.error);
   const [formData, setFormData] = useState(null);
   const {
     register,
@@ -27,6 +35,47 @@ const CheckoutPage = () => {
     resolver: yupResolver(schema),
     mode: "onSubmit",
   });
+  
+
+  useEffect(() => {
+      dispatch(fetchCartItemsRequest());
+  }, [dispatch]);
+
+
+
+  // const handleIncreaseQuantity = (itemId) => {
+  //     dispatch(updateItemQuantityRequest({ itemId, quantity: 1 }));
+  // };
+
+  // const handleDecreaseQuantity = (itemId) => {
+  //     dispatch(updateItemQuantityRequest({ itemId, quantity: -1 }));
+  // };
+
+  const calculateSubtotal = () => {
+      return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  const calculateTax = (subtotal) => {
+      const taxRate = 0.08; // Example: 8% tax rate
+      return subtotal * taxRate;
+  };
+
+  const calculateShipping = () => {
+      return 5.00; // Example: Flat rate shipping
+  };
+
+  const subtotal = calculateSubtotal();
+  const tax = calculateTax(subtotal);
+  const shipping = calculateShipping();
+  const total = subtotal + tax + shipping;
+
+  if (status === 'loading') {
+      return <div className="loading-spinner">Loading...</div>;
+  }
+
+  if (status === 'failed') {
+      return <div className="error-message">Error: {error}</div>;
+  }
 
   // const onFormSubmit = (values) => {
   //   console.log(values, "values");
@@ -43,11 +92,11 @@ const CheckoutPage = () => {
         <Grid container spacing={0}>
           <Grid item xs={12} md={6}>
             <div className="checkout-container">
-              <Card className="checkout-card">
+              <div className="checkout-card">
                 <CardContent>
-                  <Typography variant="h4" gutterBottom align="center">
+                  <h4 align="center">
                     Checkout
-                  </Typography>
+                  </h4>
                   <form
                     onSubmit={handleSubmit(onFormSubmit)}
                     className="checkout-form"
@@ -158,7 +207,7 @@ const CheckoutPage = () => {
                   </form>
                  
                 </CardContent>
-              </Card>
+              </div>
             </div>
           </Grid>
           <Grid xs={12} md={6} marginBottom={50}>
@@ -195,6 +244,38 @@ const CheckoutPage = () => {
                     </Card>
                   )}
              
+
+
+             <div>
+                <div className="payment-details">
+                <h3>Order Summary</h3>
+                <div className="payment-detail">
+                    <span>CartSubtotal:</span>
+                    <span>${subtotal.toFixed(2)}</span>
+                </div>
+                <div className="payment-detail">
+                    <span>Tax:</span>
+                    <span>${tax.toFixed(2)}</span>
+                </div>
+                <div className="payment-detail">
+                    <span>Shipping:</span>
+                    <span>${shipping.toFixed(2)}</span>
+                </div>
+                <div className="payment-detail total">
+                    <span><strong>OrderTotal:</strong></span>
+                    <span><strong>${total.toFixed(2)}</strong></span>
+                </div>
+                <div className="payment-detail total">
+                    <span><strong></strong></span>
+                    <span><strong></strong></span>
+                    <Button variant='contained' color='success'>
+                        <Link to='/success'>
+                        <strong>PlaceOrder</strong>
+                        </Link>
+                        </Button>
+                </div>
+            </div>
+             </div>
           </Grid>
         </Grid>
       </div>

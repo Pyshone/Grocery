@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { fetchProductsRequest } from '../../redux/reducer/productsSlice';
 import { addToCart, addToCartRequest, toggleFavorite } from '../../redux/reducer/cartSlice';
 import Home from '../../views/app/pages/home';
-import { Button, IconButton } from '@mui/material';
+import { Button, Divider, IconButton } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Banner from '../sections/home/banner';
@@ -57,6 +57,7 @@ const ViewAll = () => {
             <div className="products-header">
                 <h1>Products</h1>
             </div>
+            <Divider/>
             <div className="grocery-page">
                 {products.map((product) => (
                     <div key={product.id} className="grocery-item">

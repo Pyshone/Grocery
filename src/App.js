@@ -9,6 +9,7 @@ import AppLayouts from './layouts/applayouts';
 import Login from './views/auth/login';
 import CartPage from './components/pages/cartPage';
 import Payment from './components/pages/payment';
+import Success from './components/pages/success';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="view" element={<ViewAll/>}/>
         <Route path="cart" element={<CartPage/>}/>
         <Route path="check" element={<Payment/>}/>
+        <Route path="success" element={<Success/>}/>
         </Route>
       </Routes>
     </Router>

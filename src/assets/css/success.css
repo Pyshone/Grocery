@@ -1,0 +1,15 @@
+.success-success{
+    background-color: grey;
+    padding-bottom: 90px;
+}
+.sus{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-around;
+}
+.sus-head{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
