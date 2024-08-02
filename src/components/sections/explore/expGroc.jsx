@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import '../../../assets/css/explore.css'
-import { Button } from '@mui/material'
+import { Button, Divider } from '@mui/material'
 import jac from "../../../assets/images/j1.png"
 import { explore, vegetable } from '../../../helpers/map'
 import { Link } from 'react-router-dom'
@@ -19,6 +19,8 @@ const ExpGroc = () => {
                         </Link>
                     </div>
                 </div>
+                <Divider/>
+
                 <div className='groc-img'>
                     {explore.map((item) => (
                         <div key={item.id}>
@@ -40,6 +42,8 @@ const ExpGroc = () => {
                     <div>Vegetables</div>
                     <div > <Link to='/view' className='see'>See all</Link></div>
                 </div>
+                <Divider/>
+
                 <div className='groc-img'>
                     {vegetable.map((item) => (
                         <div key={item.id}>
