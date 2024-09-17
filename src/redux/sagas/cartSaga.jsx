@@ -21,7 +21,7 @@ function* fetchProducts() {
 function* addToCartSaga(action) {
     try {
         const { userId, productId, quantity } = action.payload;
-        const data = yield call(addProductToCartApi, productId, quantity);
+        const data = yield call( productId, quantity);
         yield put(addToCartSuccess(data));
         yield put(fetchCartItemsRequest());
     } catch (error) {

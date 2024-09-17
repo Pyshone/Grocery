@@ -24,6 +24,8 @@ const CartPage = () => {
     // const handleDecreaseQuantity = (itemId) => {
     //     dispatch(updateItemQuantityRequest({ itemId, quantity: -1 }));
     // };
+    console.log(cartItems,"hello...:)")
+    // console.log(carts.items,"hello...:)")
 
     const calculateSubtotal = () => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);

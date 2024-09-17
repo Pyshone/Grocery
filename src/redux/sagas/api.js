@@ -2,9 +2,9 @@
 import axios from 'axios';
 
 // Function to add a product to the cart
-export const addProductToCartApi = async (productId, quantity) => {
+export const addToCarti = async (productId, quantity) => {
     try {
-        const response = await axios.post('https://dummyjson.com/carts/add', {
+        const response = await axios.post('https://669e04fe9a1bda3680050d24.mockapi.io/mathew/app/1/items', {
             productId,
             quantity
         });

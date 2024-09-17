@@ -16,10 +16,8 @@ import icon5 from '../../assets/images/icon 5.png'
 const AppFooter = () => {
     const cartItems = useSelector((state) => state.cart.items);
     const itemCount = cartItems.reduce((count, item) => count + item.quantity, 0);
-    // const fav = cartItems.reduce((count, item) => count + item.quantity, 0);
-
-    // console.log('Cart items:', cartItems);
-    console.log('Item count:', itemCount);
+    console.log('count:', itemCount);
+    console.log(cartItems,"hiiiii....")
 
 
     return (
